@@ -1,9 +1,17 @@
+"use client";
 import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "./querKeys";
-import { fetchTopPodcast } from "../api/podcast";
+import {
+  fetchAPodcast,
+  fetchSearchPodcast,
+  fetchTopPodcast,
+} from "../api/podcast";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/store";
 
 export const useFetchTopPodcast = () => {
-  const page = "1";
+  const count = useSelector((state: RootState) => state.podcast.value);
+  const page = count;
   const per_page = "15";
 
   return useQuery({
@@ -11,6 +19,28 @@ export const useFetchTopPodcast = () => {
     queryFn: () =>
       fetchTopPodcast({
         queryKey: [QUERY_KEYS.FETCH_TOP_PODCAST, { page, per_page }],
+      }),
+  });
+};
+
+export const useFetchAPodcast = () => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.FETCH_A_PODCAST],
+    queryFn: () => fetchAPodcast(),
+  });
+};
+
+export const useFetchSearchPodcast = () => {
+  const count = useSelector((state: RootState) => state.search.value);
+  const page = count;
+  const per_page = "15";
+  const search = "15";
+
+  return useQuery({
+    queryKey: [QUERY_KEYS.FETCH_SEARCH_PODCAST, { page, per_page, search }],
+    queryFn: () =>
+      fetchSearchPodcast({
+        queryKey: [QUERY_KEYS.FETCH_SEARCH_PODCAST, { page, per_page, search }],
       }),
   });
 };

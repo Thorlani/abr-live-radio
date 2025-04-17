@@ -1,5 +1,5 @@
 export default {
-  WOKPA_PODCAST: process.env.NEXT_PUBLIC_WOKPA_BASE_URL + "/1",
+  WOKPA_PODCAST: process.env.NEXT_PUBLIC_WOKPA_BASE_URL + "/podcasts/1",
   WOKPA_TOP_PODCAST: process.env.NEXT_PUBLIC_WOKPA_BASE_URL + "/top-podcasts",
   WOKPA_TOP_CATEGORIES:
     process.env.NEXT_PUBLIC_WOKPA_BASE_URL + "/top-categories",

@@ -37,9 +37,9 @@ const HeroSection = () => {
                 alt="license-to-live image"
                 width={300}
                 height={288}
-                className="rounded-t-[4px]"
+                className="rounded-t-[4px] w-full"
               />
-              <div className="bg-white w-[300px] flex items-start relative z-10 p-[2%]">
+              <div className="bg-white w-full md:w-[300px] flex items-start relative z-10 p-[2%]">
                 <div className="relative left-[-25px] top-[10px]">
                   <Image
                     src={"/svg/play-btn.svg"}
@@ -49,7 +49,7 @@ const HeroSection = () => {
                   />
                 </div>
                 <div className="relative left-[-15px] flex flex-col py-2.5 justify-between gap-4 h-[131px]">
-                  <h3 className="max-w-[255px] font-semibold text-xl">
+                  <h3 className="md:max-w-[255px] font-semibold text-xl">
                     The Future of Work: Embracing Remote and Hybrid Workforces
                   </h3>
                   <div>
@@ -68,9 +68,9 @@ const HeroSection = () => {
                 alt="license-to-live image"
                 width={300}
                 height={288}
-                className="rounded-t-[4px]"
+                className="rounded-t-[4px] w-full"
               />
-              <div className="bg-white w-[300px] flex items-start relative z-10 p-[2%]">
+              <div className="bg-white w-full md:w-[300px] flex items-start relative z-10 p-[2%]">
                 <div className="relative left-[-25px] top-[10px]">
                   <Image
                     src={"/svg/play-btn.svg"}
@@ -80,7 +80,7 @@ const HeroSection = () => {
                   />
                 </div>
                 <div className="relative left-[-15px] flex flex-col py-2.5 justify-between gap-4 h-[131px]">
-                  <h3 className="max-w-[255px] font-semibold text-xl">
+                  <h3 className="md:max-w-[255px] font-semibold text-xl">
                     Compatibility in Relationship
                   </h3>
                   <div>
