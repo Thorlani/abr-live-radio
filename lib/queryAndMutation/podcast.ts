@@ -11,7 +11,7 @@ import { RootState } from "@/lib/store";
 
 export const useFetchTopPodcast = () => {
   const count = useSelector((state: RootState) => state.podcast.value);
-  const page = String(count);;
+  const page = String(count);
   const per_page = "15";
 
   return useQuery({
@@ -31,10 +31,11 @@ export const useFetchAPodcast = () => {
 };
 
 export const useFetchSearchPodcast = () => {
-  const count = useSelector((state: RootState) => state.search.value);
-  const page = String(count);;
+  const searchValue = useSelector((state: RootState) => state.search.value);
+  const count = useSelector((state: RootState) => state.searchCount.value);
+  const page = String(count);
   const per_page = "15";
-  const search = "15";
+  const search = searchValue;
 
   return useQuery({
     queryKey: [QUERY_KEYS.FETCH_SEARCH_PODCAST, { page, per_page, search }],
@@ -42,5 +43,6 @@ export const useFetchSearchPodcast = () => {
       fetchSearchPodcast({
         queryKey: [QUERY_KEYS.FETCH_SEARCH_PODCAST, { page, per_page, search }],
       }),
+    enabled: !!search,
   });
 };

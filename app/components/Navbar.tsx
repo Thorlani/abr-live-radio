@@ -1,10 +1,15 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { CgSearch } from "react-icons/cg";
 import { useRouter } from "next/navigation";
 import { RiCloseLargeFill } from "react-icons/ri";
+import { useFetchSearchPodcast } from "@/lib/queryAndMutation/podcast";
+import { useDispatch, useSelector } from "react-redux";
+import { setPage } from "@/redux/slices/searchSlice";
+import { RootState } from "@/lib/store";
+import MediumCard from "./MediumCard";
 
 const Navbar = () => {
   const route = useRouter();
@@ -20,6 +25,21 @@ const Navbar = () => {
     // Clean up by removing the class when component unmounts
     return () => document.body.classList.remove("no-scroll");
   }, [openMenuBar]);
+
+  const dispatch = useDispatch();
+  const searchValue = useSelector((state: RootState) => state.search.value);
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(setPage(e.target.value));
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      dispatch(setPage(e.currentTarget.value));
+    }
+  };
+
+  const { data, isPending } = useFetchSearchPodcast();
+
   return (
     <>
       <nav className="hidden min-w-full h-fit md:flex flex-col">
@@ -42,9 +62,13 @@ const Navbar = () => {
             <li>Resources</li>
             <li>Contact us</li>
             <li>Advertise</li>
-            <li className="relative">
+            <li className="relative group">
               <input
                 type="text"
+                name="search"
+                value={searchValue}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
                 placeholder="Search"
                 className="w-[192px] h-[43px] rounded-4xl bg-[#00000032] text-lg text-white placeholder:text-white placeholder:font-bold placeholder:text-sm indent-8.5 focus:outline-[white]"
               />
@@ -52,6 +76,31 @@ const Navbar = () => {
                 className="absolute top-[35%] left-[5%]"
                 color="white"
               />
+              <div className="absolute z-[99] min-h-[400px] min-w-[800px] right-0 bg-[#F4F4F4] p-[8%] rounded-xl border-b-[2px] hidden group-hover:flex group-hover:flex-col">
+                {isPending && <p>Loading...</p>}
+                {data?.data && (
+                  <>
+                    {data?.data?.data.map(
+                      (item: {
+                        picture_url: string;
+                        id: number;
+                        title: string;
+                        description: string;
+                        content_url: string;
+                      }) => (
+                        <div key={item.id}>
+                          <MediumCard
+                            id={item?.id}
+                            imageUrl={item?.picture_url}
+                            title={item?.title}
+                            shareUrl={item?.content_url}
+                          />
+                        </div>
+                      )
+                    )}
+                  </>
+                )}
+              </div>
             </li>
           </ul>
         </div>

@@ -38,11 +38,8 @@ async function fetchSearchPodcast(queryObj: {
   const search = queryObj?.queryKey[1]?.search || "";
   const page = queryObj?.queryKey[1]?.page || "";
   const per_page = queryObj?.queryKey[1]?.per_page || "";
-  const url = new URL(`${config.WOKPA_PODCAST_SEARCH}`);
+  const url = new URL(`${config.WOKPA_PODCAST_SEARCH}${search}`);
 
-  if (search) {
-    url.searchParams.append("search", search);
-  }
   if (page) {
     url.searchParams.append("page", page);
   }
