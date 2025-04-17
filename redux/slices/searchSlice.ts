@@ -4,8 +4,8 @@ const initialState = {
   value: 1,
 };
 
-const counterSlice = createSlice({
-  name: "counter",
+const searchCounterSlice = createSlice({
+  name: "search",
   initialState,
   reducers: {
     increment: (state) => {
@@ -17,5 +17,5 @@ const counterSlice = createSlice({
   },
 });
 
-export const { increment, decrement } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { increment, decrement } = searchCounterSlice.actions;
+export default searchCounterSlice.reducer;

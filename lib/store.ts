@@ -1,9 +1,17 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '@/redux/slices/counterSlice'; // example slice
+import { configureStore } from "@reduxjs/toolkit";
+import podcastCounterSlice from "@/redux/slices/podcastSlice";
+import episodeCounterSlice from "@/redux/slices/episodeSlice";
+import searchCounterSlice from "@/redux/slices/searchSlice";
+import podcastEpisodeCounterSlice from "@/redux/slices/podcastEpisode";
+import latestEpisodesCounterSlice from "@/redux/slices/latestEpisode";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    podcast: podcastCounterSlice,
+    episode: episodeCounterSlice,
+    search: searchCounterSlice,
+    podcastEpisode: podcastEpisodeCounterSlice,
+    latestEpisode: latestEpisodesCounterSlice,
   },
 });
 
