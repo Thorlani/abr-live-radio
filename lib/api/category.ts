@@ -1,10 +1,12 @@
 import config from "@/config";
 import axios from "axios";
 
-async function fetchTopCategory(queryObj: { queryKey: any }) {
+async function fetchTopCategory(queryObj: {
+  queryKey: [string, { page?: string; per_page?: string }];
+}) {
   const page = queryObj?.queryKey[1]?.page || "";
   const per_page = queryObj?.queryKey[1]?.per_page || "";
-  const url = new URL(`${config.WOKPA_TOP_CATEGORIES}`);
+  const url = new URL(`${config.WOKPA_EPISODE}`);
   if (page) {
     url.searchParams.append("page", page);
   }

@@ -10,7 +10,7 @@ const GetMeIn = () => {
             Never stop listening!
           </h2>
           <p className="text-[#282828] text-2xl max-w-[362px]">
-            Every episodes is a journey you don't wanna miss out on.{" "}
+            {`Every episodes is a journey you don't wanna miss out on.`}{" "}
           </p>
         </div>
         <div className="mt-[30px]">

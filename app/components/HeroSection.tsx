@@ -25,7 +25,7 @@ const HeroSection = () => {
               height={46}
             />
             <h2 className="text-white font-extrabold text-2xl max-w-[450px]">
-              Bridging the Financing Gap in Nigeria's off-grid sector
+              {`Bridging the Financing Gap in Nigeria's off-grid sector`}
             </h2>
           </div>
         </div>

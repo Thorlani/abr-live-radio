@@ -9,7 +9,7 @@ interface MediumCardsProps {
   shareUrl: string;
 }
 
-const MediumCard = ({ id, imageUrl, title, shareUrl }: MediumCardsProps) => {
+const MediumCard = ({ id, imageUrl, title }: MediumCardsProps) => {
   return (
     <div
       key={id}

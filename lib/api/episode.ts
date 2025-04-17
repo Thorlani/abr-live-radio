@@ -1,7 +1,9 @@
 import config from "@/config";
 import axios from "axios";
 
-async function fetchTrendingEpisode(queryObj: { queryKey: any }) {
+async function fetchTrendingEpisode(queryObj: {
+  queryKey: [string, { page?: string; per_page?: string }];
+}) {
   const page = queryObj?.queryKey[1]?.page || "";
   const per_page = queryObj?.queryKey[1]?.per_page || "";
   const url = new URL(`${config.WOKPA_TRENDING_EPISODES}`);
@@ -19,7 +21,9 @@ async function fetchTrendingEpisode(queryObj: { queryKey: any }) {
   }
 }
 
-async function fetchPodcastEpisode(queryObj: { queryKey: any }) {
+async function fetchPodcastEpisode(queryObj: {
+  queryKey: [string, { page?: string; per_page?: string }];
+}) {
   const page = queryObj?.queryKey[1]?.page || "";
   const per_page = queryObj?.queryKey[1]?.per_page || "";
   const url = new URL(`${config.WOKPA_PODCAST_EPISODE}`);
@@ -48,7 +52,9 @@ async function fetchAnEpisode() {
   }
 }
 
-async function fetchLatestEpisode(queryObj: { queryKey: any }) {
+async function fetchLatestEpisode(queryObj: {
+  queryKey: [string, { page?: string; per_page?: string }];
+}) {
   const page = queryObj?.queryKey[1]?.page || "";
   const per_page = queryObj?.queryKey[1]?.per_page || "";
   const url = new URL(`${config.WOKPA_LATEST_EPISODE}`);

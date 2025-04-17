@@ -1,7 +1,9 @@
 import config from "@/config";
 import axios from "axios";
 
-async function fetchTopPodcast(queryObj: { queryKey: any }) {
+async function fetchTopPodcast(queryObj: {
+  queryKey: [string, { page?: string; per_page?: string }];
+}) {
   const page = queryObj?.queryKey[1]?.page || "";
   const per_page = queryObj?.queryKey[1]?.per_page || "";
   const url = new URL(`${config.WOKPA_TOP_PODCAST}`);
@@ -30,7 +32,9 @@ async function fetchAPodcast() {
   }
 }
 
-async function fetchSearchPodcast(queryObj: { queryKey: any }) {
+async function fetchSearchPodcast(queryObj: {
+  queryKey: [string, { page?: string; per_page?: string; search?: string }];
+}) {
   const search = queryObj?.queryKey[1]?.search || "";
   const page = queryObj?.queryKey[1]?.page || "";
   const per_page = queryObj?.queryKey[1]?.per_page || "";

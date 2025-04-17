@@ -28,16 +28,24 @@ const NewlyAdded = () => {
         className="flex items-start overflow-x-auto gap-10 scroll-smooth hide-scrollbar"
       >
         {isPending && <p>Loading...</p>}
-        {data?.data?.data.map((item: any) => (
-          <div key={item.id}>
-            <SmallCard
-              id={item?.id}
-              imageUrl={item?.picture_url}
-              title={item?.title}
-              shareUrl={item?.content_url}
-            />
-          </div>
-        ))}
+        {data?.data?.data.map(
+          (item: {
+            picture_url: string;
+            id: number;
+            title: string;
+            description: string;
+            content_url: string;
+          }) => (
+            <div key={item.id}>
+              <SmallCard
+                id={item?.id}
+                imageUrl={item?.picture_url}
+                title={item?.title}
+                shareUrl={item?.content_url}
+              />
+            </div>
+          )
+        )}
       </div>
 
       <div className="w-fit flex items-center justify-center gap-2 rounded-2xl h-fit bg-gray-300/30 backdrop-blur-sm absolute right-2 top-[50%] z-10">

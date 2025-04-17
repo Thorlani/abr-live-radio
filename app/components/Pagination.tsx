@@ -5,7 +5,7 @@ import { RiArrowLeftSFill, RiArrowRightSFill } from "react-icons/ri";
 interface PaginationProps {
   totalPages: number;
   currentPage: number;
-  onPageChange: any;
+  onPageChange: (page: number) => void;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
