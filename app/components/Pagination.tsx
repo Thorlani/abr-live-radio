@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import { RiArrowLeftSFill, RiArrowRightSFill } from "react-icons/ri";
 
 interface PaginationProps {

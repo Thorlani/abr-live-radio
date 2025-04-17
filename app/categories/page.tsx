@@ -1,6 +1,5 @@
 import Image from "next/image";
 import CategoryCard from "../components/CategoryCard";
-import QueryWrapper from "../components/QueryWrapper";
 
 const Categories = () => {
   return (

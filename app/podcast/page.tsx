@@ -1,7 +1,4 @@
-import { IoShareSocialSharp } from "react-icons/io5";
 import Image from "next/image";
-import { MdOutlineCardGiftcard } from "react-icons/md";
-import { TbNotes } from "react-icons/tb";
 import PodcastPreview from "../components/PodcastPreview";
 import ListOfPodcasts from "../components/ListOfPodcasts";
 

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef } from "react";
-import BigRowCards from "./RowCards";
 import { RiArrowLeftSFill, RiArrowRightSFill } from "react-icons/ri";
 import { useFetchLatestEpisode } from "@/lib/queryAndMutation/episode";
 import SmallCard from "./SmallCard";
