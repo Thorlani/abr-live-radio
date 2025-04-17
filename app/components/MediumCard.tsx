@@ -6,7 +6,7 @@ interface MediumCardsProps {
   id: number;
   imageUrl: string;
   title: string;
-  shareUrl: string;
+  shareUrl?: string;
 }
 
 const MediumCard = ({ id, imageUrl, title }: MediumCardsProps) => {

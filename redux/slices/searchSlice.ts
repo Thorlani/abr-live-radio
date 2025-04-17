@@ -1,21 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: 1,
+  value: "",
 };
 
 const searchCounterSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
+    setPage: (state, action: PayloadAction<string>) => {
+      state.value = action.payload;
     },
   },
 });
 
-export const { increment, decrement } = searchCounterSlice.actions;
+export const { setPage } = searchCounterSlice.actions;
 export default searchCounterSlice.reducer;

@@ -6,7 +6,7 @@ export default {
   WOKPA_TRENDING_EPISODES:
     process.env.NEXT_PUBLIC_WOKPA_BASE_URL + "/popular-and-trending-podcasts",
   WOKPA_PODCAST_SEARCH:
-    process.env.NEXT_PUBLIC_WOKPA_BASE_URL + "/podcast-search",
+    process.env.NEXT_PUBLIC_WOKPA_BASE_URL + "/podcast-search?q=",
   WOKPA_PODCAST_EPISODE:
     process.env.NEXT_PUBLIC_WOKPA_BASE_URL + "/podcasts/1/episodes",
   WOKPA_EPISODE: process.env.NEXT_PUBLIC_WOKPA_BASE_URL + "/episodes/1",
