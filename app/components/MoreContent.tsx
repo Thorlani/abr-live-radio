@@ -14,7 +14,7 @@ const MoreContent = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const { data, isPending } = useFetchTopCategory();
-  console.log(data?.data);
+  console.log(data);
 
   const { data: latestEpisode, isPending: isFetching } =
     useFetchLatestEpisode();
@@ -27,9 +27,7 @@ const MoreContent = () => {
       >
         {isPending && <p>Loading...</p>}
         {data?.data?.map(
-          (
-            item: {
-              picture_url: string;
+          (item: {
               id: number;
               name: string;
             },

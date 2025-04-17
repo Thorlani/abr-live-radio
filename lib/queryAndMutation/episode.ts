@@ -12,7 +12,7 @@ import { RootState } from "@/lib/store";
 
 export const useFetchTrendingEpisode = () => {
   const count = useSelector((state: RootState) => state.episode.value);
-  const page = count;
+  const page = String(count);
   const per_page = "15";
 
   return useQuery({
@@ -25,7 +25,7 @@ export const useFetchTrendingEpisode = () => {
 };
 export const useFetchPodcastEpisode = () => {
   const count = useSelector((state: RootState) => state.podcastEpisode.value);
-  const page = count;
+  const page = String(count);;
   const per_page = "15";
 
   return useQuery({
@@ -46,7 +46,7 @@ export const useFetchAnEpisode = () => {
 
 export const useFetchLatestEpisode = () => {
   const count = useSelector((state: RootState) => state.latestEpisode.value);
-  const page = count;
+  const page = String(count);
   const per_page = "15";
 
   return useQuery({
