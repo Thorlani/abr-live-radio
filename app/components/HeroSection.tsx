@@ -17,13 +17,16 @@ const HeroSection = () => {
             height={561}
             className="w-full h-full rounded"
           />
-          <div className="absolute bottom-0 left-0 px-5 py-2 w-full h-fit flex items-center gap-5 bg-[#00000050]">
-            <Image
-              src={"/svg/play-btn.svg"}
-              alt="play icon"
-              width={46}
-              height={46}
-            />
+          <div className="absolute bottom-0 left-0 px-5 py-2 w-full h-fit flex items-start md:items-center gap-5 bg-[#00000050]">
+            <div className="w-[46px] h-[46px]">
+              <Image
+                src={"/svg/play-btn.svg"}
+                alt="play icon"
+                width={46}
+                height={46}
+                className="max-w-[46px]"
+              />
+            </div>
             <h2 className="text-white font-extrabold text-2xl max-w-[450px]">
               {`Bridging the Financing Gap in Nigeria's off-grid sector`}
             </h2>
@@ -40,20 +43,21 @@ const HeroSection = () => {
                 className="rounded-t-[4px] w-full"
               />
               <div className="bg-white w-full md:w-[300px] flex items-start relative z-10 p-[2%]">
-                <div className="relative left-[-25px] top-[10px]">
+                <div className="relative md:left-[-25px] top-[10px]">
                   <Image
                     src={"/svg/play-btn.svg"}
                     alt="license-to-live image"
                     width={40}
                     height={40}
+                    className="max-w-[40px]"
                   />
                 </div>
                 <div className="relative left-[-15px] flex flex-col py-2.5 justify-between gap-4 h-[131px]">
-                  <h3 className="md:max-w-[255px] font-semibold text-xl">
+                  <h3 className="ml-5 md:ml-0 md:max-w-[255px] font-semibold text-xl">
                     The Future of Work: Embracing Remote and Hybrid Workforces
                   </h3>
                   <div>
-                    <p className=" font-medium text-[13px]">
+                    <p className="ml-5 md:ml-0 font-medium text-[13px]">
                       Sept 7, 2023{" "}
                       <span className="w-[0.5px] h-[12px] bg-[#979797]"></span>{" "}
                       35 mins
@@ -71,20 +75,21 @@ const HeroSection = () => {
                 className="rounded-t-[4px] w-full"
               />
               <div className="bg-white w-full md:w-[300px] flex items-start relative z-10 p-[2%]">
-                <div className="relative left-[-25px] top-[10px]">
+                <div className="relative md:left-[-25px] top-[10px]">
                   <Image
                     src={"/svg/play-btn.svg"}
                     alt="license-to-live image"
                     width={40}
                     height={40}
+                    className="max-w-[40px]"
                   />
                 </div>
                 <div className="relative left-[-15px] flex flex-col py-2.5 justify-between gap-4 h-[131px]">
-                  <h3 className="md:max-w-[255px] font-semibold text-xl">
+                  <h3 className="ml-5 md:ml-0 md:max-w-[255px] font-semibold text-xl">
                     Compatibility in Relationship
                   </h3>
                   <div>
-                    <p className=" font-medium text-[13px]">
+                    <p className="ml-5 md:ml-0 font-medium text-[13px]">
                       Sept 5, 2023{" "}
                       <span className="w-[0.5px] h-[12px] bg-[#979797]"></span>{" "}
                       55 mins

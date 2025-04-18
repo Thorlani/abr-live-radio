@@ -8,8 +8,10 @@ import { RiCloseLargeFill } from "react-icons/ri";
 import { useFetchSearchPodcast } from "@/lib/queryAndMutation/podcast";
 import { useDispatch, useSelector } from "react-redux";
 import { setPage } from "@/redux/slices/searchSlice";
+import { setPage as setCount } from "@/redux/slices/searchCountSlice";
 import { RootState } from "@/lib/store";
 import MediumCard from "./MediumCard";
+import Pagination from "./Pagination";
 
 const Navbar = () => {
   const route = useRouter();
@@ -39,6 +41,10 @@ const Navbar = () => {
   };
 
   const { data, isPending } = useFetchSearchPodcast();
+
+  const handlePageChange = (page: number) => {
+    dispatch(setCount(page));
+  };
 
   return (
     <>
@@ -76,10 +82,10 @@ const Navbar = () => {
                 className="absolute top-[35%] left-[5%]"
                 color="white"
               />
-              <div className="absolute z-[99] h-[500px] min-w-[650px] right-0 bg-[#F4F4F4] overflow-y-scroll overflow-x-clip p-[8%] flex-wrap justify-center items-center gap-10 rounded-xl border-b-[2px] hidden group-hover:flex group-hover:flex-row">
+              <div className="absolute z-[99] h-[500px] min-w-[650px] right-0 bg-[#F4F4F4] p-[8%] rounded-xl border-b-[2px] hidden group-hover:flex group-hover:flex-col justify-center items-center">
                 {isPending && <p></p>}
                 {data?.data && (
-                  <>
+                  <div className="w-full flex flex-wrap justify-center items-center gap-x-10  overflow-y-scroll overflow-x-clip">
                     {data?.data?.data.map(
                       (item: {
                         picture_url: string;
@@ -98,7 +104,14 @@ const Navbar = () => {
                         </div>
                       )
                     )}
-                  </>
+                  </div>
+                )}
+                {data?.data && (
+                  <Pagination
+                    currentPage={data?.data?.current_page}
+                    totalPages={data?.data?.total}
+                    onPageChange={handlePageChange}
+                  />
                 )}
               </div>
             </li>
