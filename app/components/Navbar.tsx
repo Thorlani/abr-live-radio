@@ -76,8 +76,8 @@ const Navbar = () => {
                 className="absolute top-[35%] left-[5%]"
                 color="white"
               />
-              <div className="absolute z-[99] min-h-[400px] min-w-[800px] right-0 bg-[#F4F4F4] p-[8%] rounded-xl border-b-[2px] hidden group-hover:flex group-hover:flex-col">
-                {isPending && <p>Loading...</p>}
+              <div className="absolute z-[99] h-[500px] min-w-[650px] right-0 bg-[#F4F4F4] overflow-y-scroll overflow-x-clip p-[8%] flex-wrap justify-center items-center gap-10 rounded-xl border-b-[2px] hidden group-hover:flex group-hover:flex-row">
+                {isPending && <p></p>}
                 {data?.data && (
                   <>
                     {data?.data?.data.map(
